@@ -11,6 +11,12 @@ jobs:
 
       - name: Get Conan
         uses: turtlebrowser/get-conan@v1.0
+      
+      - name: Create default profile
+        run: conan profile new default --detect
+        
+      - name: Update profile
+        run: conan profile update settings.compiler.cppstd=17 default
 
       - name: Conan Install
         run: conan install . --output-folder=. --build=missing

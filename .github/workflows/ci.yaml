@@ -9,6 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Get Conan
+        uses: turtlebrowser/get-conan@v1.0
+
       - name: Conan Install
         run: conan install . --output-folder=. --build=missing
 

@@ -1,4 +1,4 @@
-#include "base64.h"
+#include "base64_impl.h"
 
 #include <limits.h>
 
@@ -6,7 +6,7 @@
 
 namespace Base64 {
 
-int Base64Codec::encode(const std::vector<char> &src, std::string &dst) {
+int Base64CodecImpl::encode(const std::vector<char> &src, std::string &dst) {
   std::stringstream ss;
   unsigned i_bits = 0;
   int i_shift = 0;
@@ -37,7 +37,7 @@ int Base64Codec::encode(const std::vector<char> &src, std::string &dst) {
   return 0;
 }
 
-int Base64Codec::decode(const std::string &src, std::vector<char> &dst) {
+int Base64CodecImpl::decode(const std::string &src, std::vector<char> &dst) {
   int val = 0;
 
   for (size_t i = 0; i < src.size(); ++i) {
@@ -66,4 +66,4 @@ int Base64Codec::decode(const std::string &src, std::vector<char> &dst) {
   return 0;
 }
 
-}  // namespace B64
+}  // namespace Base64
